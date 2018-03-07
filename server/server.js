@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use('/product/:id/', express.static(path.join(__dirname, '/../public/')));
 // app.use('/product/:id/', express.static(path.join(__dirname, '/../client/dist/images')));
 
-app.get('/product/:id', (req, res) => {
+app.get('http://localhost:8002/hooligan', (req, res) => {
   const { productID } = req.query;
   console.log(req.query);
   reviewController.findByProductID(productID, (err, data) => {

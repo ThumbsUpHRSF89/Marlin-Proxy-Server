@@ -12,7 +12,7 @@
     <div id="reviewSection"></div>
     <script src="lib/react.development.js"></script>
     <script src="lib/react-dom.development.js"></script>
-    <!-- <script src="http://localhost:8001/app.js"></script> -->
+    <script src="http://localhost:8001/bundle.js"></script>
     <script src="http://localhost:8002/product/:id/bundle.js"></script>
     <!-- <script src="http://localhost:8003/app.js"></script>
     <script src="http://localhost:8004/app.js"></script> -->
@@ -26,10 +26,10 @@
       //   React.createElement(CountDown),
       //   document.getElementById('relatedProduct')
       // );
-      // ReactDOM.render(
-      //   React.createElement(Related),
-      //   document.getElementById('productComparison')
-      // );
+      ReactDOM.render(
+        React.createElement(RelatedProduct),
+        document.getElementById('relatedProduct')
+      );
       ReactDOM.render(
         React.createElement(ReviewSection),
         document.getElementById('reviewSection')
