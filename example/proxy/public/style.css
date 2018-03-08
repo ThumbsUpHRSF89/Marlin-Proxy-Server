@@ -12,3 +12,9 @@
   display: block;
 }
 
+.sectionDivider {
+  border: 1px solid black;
+  border-top: 1px solid grey;
+  width: 50rem;
+  height: 1rem;
+}
