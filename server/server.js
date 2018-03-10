@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
+const request = require('request');
 // const reviewController = require('../db/models/reviews.js');
 
 const app = express();
@@ -13,17 +14,21 @@ app.use(bodyParser.json());
 app.use('/product/:id/', express.static(path.join(__dirname, '/../public/')));
 // app.use('/product/:id/', express.static(path.join(__dirname, '/../client/dist/images')));
 
-// app.get('http://localhost:8002/hooligan', (req, res) => {
-//   const { productID } = req.query;
-//   console.log(req.query);
-//   reviewController.findByProductID(productID, (err, data) => {
-//     if (err) {
-//       throw err;
-//     } else {
-//       res.json(data);
-//     }
-//   });
-// });
+app.get('/api/:service', (req, res) => {
+  const services = {
+    'relatedProduct': 'http://localhost:8001/bundle.js',
+    'reviewSection': 'http://localhost:8002/bundle.js',
+    'productComparison': 'http://localhost:8003/bundle.js',
+    'itemDetails': 'http://localhost:8004/bundle.js',
+  }
+  request(services[req.params.service], (error, response, body) => {
+    if (error) {
+      throw error;
+    } else {
+      res.send(body);
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`Gotcha at port ${port}!\nLove,\nYour Server`);

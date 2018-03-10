@@ -6,7 +6,8 @@
     <title>FECDemo</title>
   </head>
   <body>
-    <div id="mainView"></div>
+    <div id="itemDetails"></div>
+    <div className="sectionDivider">---------------------------------------------------------------------</div>
     <div id="relatedProduct"></div>
     <div className="sectionDivider">---------------------------------------------------------------------</div>
     <div id="productComparison"></div>
@@ -14,16 +15,16 @@
     <div id="reviewSection"></div>
     <script src="lib/react.development.js"></script>
     <script src="lib/react-dom.development.js"></script>
-    <script src="http://localhost:8001/bundle.js"></script>
-    <script src="http://localhost:8002/product/:id/bundle.js"></script>
-    <script src="http://localhost:8003/product/:id/bundle.js"></script>
-    <!-- <script src="http://localhost:8004/app.js"></script> -->
+    <script src="/api/itemDetails"></script>
+    <script src="/api/productComparison"></script>
+    <script src="/api/relatedProduct"></script>
+    <script src="/api/reviewSection"></script>
     <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
     <script>
-      // ReactDOM.render(
-      //   React.createElement(Info),
-      //   document.getElementById('mainView')
-      // );
+      ReactDOM.render(
+        React.createElement(ItemDetails),
+        document.getElementById('itemDetails')
+      );
       ReactDOM.render(
         React.createElement(App),
         document.getElementById('productComparison')
