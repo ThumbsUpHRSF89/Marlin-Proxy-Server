@@ -25,16 +25,6 @@ services:
   database:
     image: mongo:latest
 
-  related_products:
-    image: ivyzheng/related-product:latest
-    depends_on:
-      - 'database'
-    ports:
-      - '8001:8001'
-  
-  database:
-    image: mongo:latest
-
   product_overview:
     image: hanyuzhu/item_detail:latest
     depends_on:
