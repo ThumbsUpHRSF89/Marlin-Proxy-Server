@@ -12,7 +12,6 @@ mongoose.connect('mongodb://localhost/hackazonReviews');
 
 app.use(bodyParser.json());
 app.use('/product/:id/', express.static(path.join(__dirname, '/../public/')));
-// app.use('/product/:id/', express.static(path.join(__dirname, '/../client/dist/images')));
 
 app.get('/api/:service', (req, res) => {
   const services = {
